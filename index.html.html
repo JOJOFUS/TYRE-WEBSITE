@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Headway Tyres Services | Tyre Size Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background: #e6f2ff;  /* Light blue background for entire page */
+        }
+
+        /* Header */
+        header {
+            background: #111;
+            color: #f78e06;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f78e06;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80") no-repeat center/cover;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            margin: 15px 0;
+            font-size: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #e63946;
+            color: #fff;
+            padding: 12px 28px;
+            text-decoration: none;
+            border-radius: 40px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background: #c1121f;
+            transform: scale(1.02);
+        }
+
+        /* Sections - now with light blue background by default */
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+            background: #e6f2ff;  /* Light blue background for sections */
+        }
+
+        .section h2 {
+            margin-bottom: 30px;
+            font-size: 32px;
+            position: relative;
+            display: inline-block;
+            color: #1a3e6f;
+        }
+        .section h2:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #f78e06;
+            margin: 10px auto 0;
+            border-radius: 3px;
+        }
+
+        .dark {
+            background: #2c5a7a;  /* Darker blue shade for services section */
+            color: #f0f0f0;
+        }
+        .dark h2 {
+            color: #f78e06;
+        }
+        .dark .services-list li {
+            background: #1a3e6f;
+            color: #ffd966;
+        }
+
+        /* Cards - white cards with subtle shadow on light blue */
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 30px 20px;
+            width: 280px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        .card h3 {
+            color: #e63946;
+            margin-bottom: 12px;
+            font-size: 24px;
+        }
+        .card p {
+            color: #4a5568;
+        }
+
+        /* Services list */
+        .services-list {
+            list-style: none;
+            font-size: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 20px;
+        }
+        .services-list li {
+            background: #1a3e6f;
+            color: #f78e06;
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-weight: bold;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+            transition: transform 0.2s, background 0.2s;
+        }
+        .services-list li:hover {
+            transform: scale(1.05);
+            background: #0e2a4a;
+            color: #ffb347;
+        }
+
+        /* TYRE SIZE GUIDE SECTION */
+        .tyre-guide {
+            background: #d4e6ff;  /* Slightly different light blue for contrast */
+            padding: 60px 20px;
+            border-top: 1px solid #b8d0f0;
+            border-bottom: 1px solid #b8d0f0;
+        }
+        .guide-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+        .guide-image {
+            flex: 1;
+            min-width: 280px;
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 24px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        .guide-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 16px;
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .guide-text {
+            flex: 1;
+            min-width: 280px;
+            text-align: left;
+            background: white;
+            padding: 30px;
+            border-radius: 24px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .guide-text h3 {
+            font-size: 28px;
+            color: #1a3e6f;
+            margin-bottom: 20px;
+            border-left: 5px solid #f78e06;
+            padding-left: 18px;
+        }
+        .guide-text p {
+            margin-bottom: 20px;
+            font-size: 17px;
+            color: #2c3e44;
+        }
+        .tyre-example {
+            background: #fef5e8;
+            padding: 15px 20px;
+            border-radius: 16px;
+            margin: 20px 0;
+            font-family: monospace;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            border: 1px solid #f78e06;
+            color: #b45f06;
+        }
+        .code-detail {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 10px;
+            font-size: 16px;
+            margin-top: 15px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+        .code-detail span:first-child {
+            font-weight: 800;
+            color: #e63946;
+        }
+        .info-note {
+            background: #eef2fa;
+            padding: 12px;
+            border-radius: 12px;
+            margin-top: 20px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        /* Contact section */
+        .contact-text {
+            font-size: 18px;
+            margin-bottom: 25px;
+            color: #1a3e6f;
+        }
+        .phone-box {
+            background: #111;
+            color: #fff;
+            padding: 30px 20px;
+            max-width: 450px;
+            margin: 20px auto;
+            border-radius: 20px;
+            transition: 0.2s;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        .phone-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #f78e06;
+            letter-spacing: 2px;
+        }
+        .phone-number {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 12px 0;
+        }
+        .phone-number a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .phone-number a:hover {
+            color: #f78e06;
+        }
+        .hours-box {
+            background: #1f1f1f;
+            padding: 12px;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+        .hours-box p {
+            margin: 5px 0;
+            font-size: 15px;
+        }
+        .map-container {
+            max-width: 900px;
+            margin: 30px auto 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 350px;
+            border: 0;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: #111;
+            color: #ccc;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            nav ul {
+                justify-content: center;
+                margin-top: 5px;
+            }
+            .hero h2 {
+                font-size: 32px;
+            }
+            .guide-container {
+                flex-direction: column;
+            }
+            .guide-text, .guide-image {
+                width: 100%;
+            }
+            .phone-number {
+                font-size: 26px;
+            }
+            .section h2 {
+                font-size: 28px;
+            }
+        }
+
+        /* Additional styling for product cards to ensure they pop on light blue */
+        .card {
+            background: #ffffff;
+            border: 1px solid #d0e2f5;
+        }
+        
+        /* Products section specific */
+        #products {
+            background: #e6f2ff;
+        }
+        
+        /* Contact section background */
+        #contact {
+            background: #e6f2ff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1 class="logo">Headway Tyres Services</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#tyre-guide">Tyre Size Guide</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Affordable Tyres for Every Road</h2>
+            <p>Quality. Safety. Performance.</p>
+            <a href="#products" class="btn">View Products</a>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="section">
+        <h2>Our Tyres</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>🚗 Car Tyres</h3>
+                <p>Comfort and control for daily driving. Superior grip, low noise, and excellent fuel efficiency.</p>
+            </div>
+            <div class="card">
+                <h3>🚙 SUV Tyres</h3>
+                <p>Built for strength and stability. Rugged tread patterns for on-road comfort and off-road capability.</p>
+            </div>
+            <div class="card">
+                <h3>🚛 Truck Tyres</h3>
+                <p>Heavy-duty performance for long hauls. Engineered for high mileage and maximum load resistance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section dark">
+        <h2>Our Services</h2>
+        <ul class="services-list">
+            <li>🔧 Tyre Installation</li>
+            <li>⚖️ Wheel Balancing</li>
+            <li>📐 Alignment</li>
+            <li>🛠️ Tyre Repair</li>
+            <li>💨 Tyre Inflation</li>
+            <li>🔍 Free Tyre Inspection</li>
+        </ul>
+    </section>
+
+    <!-- HOW TO READ TYRE SIZE (with PNG illustration) -->
+    <section id="tyre-guide" class="tyre-guide">
+        <div class="guide-container">
+            <!-- Left side: the PNG image from reading-tyre-numbers.png -->
+            <div class="guide-image">
+                <img src="reading-tyre-numbers.png" alt="How to read tyre size diagram showing 205/55 R16 91 V" style="max-width:100%; border-radius:16px;">
+                <p style="margin-top:12px; font-weight:500; color:#e63946;">🔍 Find these numbers on your tyre sidewall</p>
+            </div>
+            <!-- Right side: explanatory text about tyre size -->
+            <div class="guide-text">
+                <h3>📏 How to See Your Tyre Size</h3>
+                <p>Every tyre has a code printed on the sidewall — for example <strong>205/55 R16 91 V</strong>. Understanding these numbers helps you choose the perfect fit for your vehicle, ensuring safety and performance.</p>
+                <div class="tyre-example">
+                    ⚡ EXAMPLE: 205/55 R16 91 V
+                </div>
+                <div class="code-detail">
+                    <span>🔹 Width (205)</span> <span>Tyre width in millimetres from sidewall to sidewall.</span>
+                    <span>🔹 Profile (55)</span> <span>Sidewall height as a percentage of width. Lower = sportier handling.</span>
+                    <span>🔹 Rim (R16)</span> <span>Radial construction & diameter of wheel in inches (16").</span>
+                    <span>🔹 Load (91)</span> <span>Load index: maximum weight capacity per tyre.</span>
+                    <span>🔹 Speed (V)</span> <span>Speed rating: max safe speed (V = up to 240 km/h).</span>
+                </div>
+                <div class="info-note">
+                    💡 <strong>Quick tip:</strong> Not sure about your tyre size? Check the driver's door jamb or your owner's manual. Or simply <a href="#contact" style="color:#e63946; font-weight:bold;">call us</a> — we'll help you identify the right size!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section (Enhanced with map and phone) -->
+    <section id="contact" class="section">
+        <h2>Visit or Call Us</h2>
+        <p class="contact-text">
+            📍 Need tyres or service? Call or visit our workshop today!
+        </p>
+
+        <div class="phone-box">
+            <p class="phone-label">📞 Phone Number</p>
+            <p class="phone-number">
+                <a href="tel:76045231">2415381
+                
+                </a>
+            </p>
+            <div class="hours-box">
+                <p><strong>🕒 Mon – Friday:</strong> 8:00 AM – 5:30 PM</p>
+                <p><strong>🕒 Saturday:</strong> 8:00 AM – 2:00 PM</p>
+                <p><strong>🕒 Sunday:</strong> 8:00 AM – 1:00 PM</p>
+            </div>
+        </div>
+
+        <!-- Google Map (original location) -->
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.889266073184!2d27.4999277!3d-21.1670416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1eb469004ba751d9%3A0xcfc2a27cd5bffd68!2sHeadway%20Tyre%20Services!5e0!3m2!1sen!2sbw!4v1700000000000!5m2!1sen!2sbw"
+                allowfullscreen=""
+                loading="lazy"
+                title="Headway Tyres Location">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Headway Tyres Services | Quality & Safety First | Premium Tyres & Expert Service</p>
+    </footer>
+
+    <!-- Smooth scrolling for anchor links -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if(targetId === "#" || targetId === "") return;
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add lazy loading for images
+        if('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                if(!img.hasAttribute('loading')) {
+                    img.setAttribute('loading', 'lazy');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
